@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="/">Smart Clinic</a>
+    <div class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+      {{#if user}}
+        {{#if (eq user.role "patient")}}
+          <a class="nav-link" href="/patient/dashboard">Dashboard</a>
+          <a class="nav-link" href="/doctors">Doctors</a>
+          <a class="nav-link" href="/appointments/new">Book</a>
+          <a class="nav-link" href="/appointments/my">My Appointments</a>
+          <a class="nav-link" href="/profile">Profile</a>
+        {{/if}}
+
+        {{#if (eq user.role "doctor")}}
+          <a class="nav-link" href="/doctor/dashboard">Dashboard</a>
+          <a class="nav-link" href="/doctor/schedule">Schedule</a>
+          <a class="nav-link" href="/doctor/appointments">Appointments</a>
+          <a class="nav-link" href="/profile">Profile</a>
+        {{/if}}
+
+        {{#if (eq user.role "admin")}}
+          <a class="nav-link" href="/admin/dashboard">Dashboard</a>
+          <a class="nav-link" href="/admin/users">Users</a>
+          <a class="nav-link" href="/admin/doctors">Doctors</a>
+          <a class="nav-link" href="/admin/departments">Departments</a>
+          <a class="nav-link" href="/admin/appointments">Appointments</a>
+        {{/if}}
+
+        <a class="nav-link text-warning" href="/auth/logout">Logout</a>
+      {{else}}
+        <a class="nav-link" href="/doctors">Doctors</a>
+        <a class="nav-link" href="/auth/login">Login</a>
+        <a class="nav-link" href="/auth/register">Register</a>
+      {{/if}}
+    </div>
+  </div>
+</nav>
